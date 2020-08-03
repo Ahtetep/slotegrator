@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<div class="wrapper-content">
+    <div class="content">
+        {% include 'navbar.html.twig' %}
+        {% block body %}{% endblock %}
+    </div>
+
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    {% block javascripts %}{% endblock %}
+    {% include 'footer.html.twig' %}
+    {% include 'modal.html.twig' %}
+</div>
+</body>
+</html>

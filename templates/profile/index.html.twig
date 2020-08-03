@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block body %}
+    <div class="wrapper profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="profile-item">
+                        <div class="item-text">Ваш денежный выигрыш составляет <span>{{ prizes.money ?? 0 }}</span> грн.
+                        </div>
+                        <div class="item-button">
+                            <button id="transfer-to-the-card" type="button" class="btn btn-outline-light">Перевести на
+                                карту
+                            </button>
+                            <button id="money-to-points" type="button" class="btn btn-outline-light">Конвертировать в
+                                баллы
+                            </button>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="item-text">На Вашем счету <span>{{ prizes.points ?? 0 }}</span> бонусных очков.
+                        </div>
+                        <div class="item-button"></div>
+                    </div>
+                    {% if prizes.stuff.0|length %}
+                        <div class="item-text">У Вас имеются следующие подарки:</div>
+                        {% for item in prizes.stuff %}
+                            <div class="profile-item">
+                                <div class="item-text"><span>{{ item.stuff }}</span></div>
+                                <button
+                                        type="button"
+                                        class="btn btn-outline-light remove-item"
+                                        data-stuff-id="{{ item.id }}"
+                                >Отказаться от подарка
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="item-text">У Вас нет подарков.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

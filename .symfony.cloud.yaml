@@ -1,0 +1,6 @@
+timezone: Europe/Kiev
+
+crons:
+  payout:
+    spec: * * * * *
+    cmd: croncape bin/console app:payout
